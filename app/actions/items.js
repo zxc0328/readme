@@ -1,13 +1,22 @@
 import uuid from 'node-uuid';
 
-export const ADD_ITEM = 'ADD_ITEM'
-export function addItem(item) {
+export const CREATE_ITEM = 'CREATE_ITEM'
+export function createItem(item) {
   return {
-    type: ADD_ITEM,
+    type: CREATE_ITEM,
     item: {
       id: uuid.v4(),
-      type: item.type
+      type: item.type,
+      atoms:[]
     }
-  };
-};
+  }
+}
 
+export const ATTACH_TO_ITEM = 'ATTACH_TO_ITEM'
+export function attachToItem(obj) {
+  return {
+    type: ATTACH_TO_ITEM,
+    itemId: obj.itemId,
+    atomId: obj.atomId
+  }
+}

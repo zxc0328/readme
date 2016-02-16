@@ -1,26 +1,24 @@
 import * as types from '../actions/items';
+import update from 'react-addons-update';
 
 const initialState = [];
 export default function items(state = initialState, action) {
   switch (action.type) {
-		case types.ADD_ITEM:
-			switch (action.item.type) {
-				case 0:
-					const item_1 = {
-						content: {name:'john',phone:'123-456'},
-						...action.item 
-					}
-					return [...state, item_1]
-				case 1:
-				  const item_2 = {
-						content: [{time:'2001-2008',company:'Mircosoft'},{time:'20018-now',company:'Facebook'}],
-						...action.item 
-					}
-					return [...state, item_2]
-				default:
-					return [...state, action.item]
-			}
-		default:
-			return state
+    case types.CREATE_ITEM:
+			return [...state, action.item]
+    case types.ATTACH_TO_ITEM:
+      return state.map((item,index) => {
+        if (item.id === action.itemId) {
+          const obj = {
+            id:action.atomId
+          }
+          return Object.assign({}, item, {
+            atoms: [...item.atoms, obj]
+          })
+        }
+        return item
+      })
+    default:
+      return state
   }
 }
