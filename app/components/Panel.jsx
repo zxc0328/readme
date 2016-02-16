@@ -5,8 +5,8 @@ import ItemProto from './ItemProto.jsx';
 export default class Panel extends React.Component {
 	render() {
 		return <div>
+						<ItemProto type={0}/>
 						<ItemProto type={1}/>
-						<ItemProto type={3}/>
 					 </div>
 	}
 }

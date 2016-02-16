@@ -8,7 +8,7 @@ import storage from './libs/storage';
 
 const APP_STORAGE = 'redux_kanban';
 
-const store = configureStore(storage.get(APP_STORAGE) || {});
+const store = configureStore({});
 
 store.subscribe(() => {
   if(!storage.get('debug')) {
