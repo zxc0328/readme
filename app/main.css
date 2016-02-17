@@ -1,99 +1,72 @@
-body {
-  background: cornsilk;
-
-  font-family: sans-serif;
+/**
+ * reset
+ */
+body{
+  margin: 0;
+  background-color: #e0e0e0;
 }
-
-.lane {
+/**
+ * css of readme
+ */
+.item{
+  display: block;
+}
+.item_proto{
+  display: block;
+  padding: 10px;
+  border-radius: 2px;
+  background-color: #00bfa5;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+.canvas{
+  font-size: 0;
+  width: 1060px;
+  border-radius: 4px;
+  margin: 30px auto; 
+  background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+.atom{
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+}
+.panel{
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+  background-color: #fff;
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  border-radius: 4px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.panel_container{
+  width: 80%;
+  margin: 0 auto;
+}
+.panel_container_title{
+  padding-bottom: 20px;
+}
+.block{
   display: inline-block;
-
-  margin: 1em;
-
-  background-color: #efefef;
-  border: 1px solid #ccc;
-  border-radius: 0.5em;
-
-  min-width: 10em;
+  min-height: 1000px;
   vertical-align: top;
 }
-
-.lane-header {
-  overflow: auto;
-
-  padding: 1em;
-
-  color: #efefef;
-  background-color: #333;
-
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
+.block_0{
+  width: 30%;
+  background-color: #00bfa5;
 }
-
-.lane-name {
-  float: left;
+.block_1{
+  width: 70%;
 }
-
-.lane-add-note {
-  float: left;
-
-  margin-right: 0.5em;
-}
-
-.lane-delete {
-  float: right;
-
-  margin-left: 0.5em;
-
-  visibility: hidden;
-}
-.lane-header:hover .lane-delete {
-  visibility: visible;
-}
-
-.add-lane, .lane-add-note button {
-  cursor: pointer;
-
-  background-color: #fdfdfd;
-  border: 1px solid #ccc;
-}
-
-.lane-delete button {
-  padding: 0;
-
-  cursor: pointer;
-
-  color: white;
-  background-color: rgba(0, 0, 0, 0);
-  border: 0;
-}
-
-.notes {
-  margin: 0.5em;
-  padding-left: 0;
-
-  max-width: 10em;
-  list-style: none;
-}
-
-.note {
-  margin-bottom: 0.5em;
-  padding: 0.5em;
-
-  background-color: #fdfdfd;
-  box-shadow: 0 0 0.3em .03em rgba(0,0,0,.3);
-}
-.note:hover {
-  box-shadow: 0 0 0.3em .03em rgba(0,0,0,.7);
-
-  transition: .6s;
-}
-
-.note .value {
-  /* force to use inline-block so that it gets minimum height */
+.item .value{
   display: inline-block;
 }
-
-.note .delete {
+.item .delete {
   float: right;
 
   padding: 0;
@@ -105,28 +78,6 @@ body {
 
   visibility: hidden;
 }
-.note:hover .delete {
+.item:hover .delete {
   visibility: visible;
 }
-
-/**
- * css of readme
- */
-.item_proto{
-  display: inline-block;
-  padding: 10px;
-  border: 1px solid blue;
-  border-radius: 2px;
-}
-.canvas{
-  border: 1px solid red;
-  width: 400px;
-  border-radius: 2px;
-  padding: 10px;
-  margin-top: 30px;
-}
-.atom{
-  width: 100%;
-  height: 40px;
-}
-

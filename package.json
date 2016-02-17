@@ -1,7 +1,7 @@
 {
-  "name": "kanban_app",
-  "version": "0.0.0",
-  "description": "Webpack demo app",
+  "name": "readme",
+  "version": "0.0.1",
+  "description": "The missing online resume maker",
   "main": "index.js",
   "scripts": {
     "deploy": "gh-pages -d build",
@@ -10,10 +10,9 @@
     "start": "webpack-dev-server"
   },
   "keywords": [
-    "webpack",
-    "demo"
+    "resume"
   ],
-  "author": "",
+  "author": "zindex",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.4.5",

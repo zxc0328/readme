@@ -6,7 +6,7 @@ import DevTools from './DevTools.jsx';
 
 export default ({store}) =>
   <Provider store={store}>
-    <div>
+    <div className="readme">
       <Readme />
       <DevTools />
     </div>

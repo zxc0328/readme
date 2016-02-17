@@ -12,7 +12,6 @@ export default class Atom extends React.Component {
 						}
 	}
 	renderListItem(children) {
-		console.log('go!')
 		return <AtomListItem _children={children}/>
 	}
 }

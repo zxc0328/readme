@@ -16,8 +16,8 @@ const itemSource = {
 export default class ItemProto extends React.Component {
 
 	render() {
-		const { connectDragSource, ...props} = this.props
-		return connectDragSource(<div {...props} className="item_proto">
-			Drag me to add item to the resume</div>)
+		const { connectDragSource } = this.props
+		return connectDragSource(<div className="item_proto">
+			Type: { this.props.type }</div>)
 	}
 }
