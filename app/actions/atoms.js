@@ -6,7 +6,25 @@ export function createAtom(atom) {
     type: CREATE_ATOM,
     atom: {
       id: uuid.v4(),
-      type: atom.type
+      type: atom.type,
+      text: 'ddd',
+      editing: false
     }
+  };
+};
+
+export const UPDATE_ATOM = 'UPDATE_ATOM';
+export function updateAtom(updatedAtom) {
+  return {
+    type: UPDATE_ATOM,
+    atom:updatedAtom
+  };
+};
+
+export const DELETE_ATOM = 'DELETE_ATOM';
+export function deleteAtom(id) {
+  return {
+    type: DELETE_ATOM,
+    id
   };
 };

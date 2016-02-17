@@ -11,7 +11,6 @@ const itemTarget = {
     const sourceProps = monitor.getItem()
     const type = sourceProps.type
     const result = targetProps.createItem({type})
-    console.log(result.item.id)
     targetProps.attachToBlock(result.item.id)
   }
 }

@@ -6,12 +6,13 @@ export default class Atom extends React.Component {
 	
 		switch (this.props.type){
 							case 0:
-								return <div className="atom">{this.renderListItem()}</div>
+								return <div className="atom">{this.renderListItem(this.props.children)}</div>
 							default:
 							  return <div className="atom"></div>
 						}
 	}
-	renderListItem() {
-		return <AtomListItem />
+	renderListItem(children) {
+		console.log('go!')
+		return <AtomListItem _children={children}/>
 	}
 }
