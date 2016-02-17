@@ -7,7 +7,7 @@ export function createAtom(atom) {
     atom: {
       id: uuid.v4(),
       type: atom.type,
-      text: 'ddd',
+      text: '',
       editing: false
     }
   };

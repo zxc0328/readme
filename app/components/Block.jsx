@@ -6,7 +6,7 @@ const itemTarget = {
   drop(targetProps, monitor) {
     const sourceProps = monitor.getItem()
     const type = sourceProps.type
-    const result = targetProps.createItem({type})
+    const result = targetProps.createItem({type,title:'Experience'})
     const blockId = targetProps.id
     targetProps.attachToBlock({blockId,itemId:result.item.id})
   }

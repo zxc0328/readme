@@ -10,6 +10,7 @@ body{
  */
 .item{
   display: block;
+  font-size: 24px;
 }
 .item_proto{
   display: block;
@@ -62,6 +63,12 @@ body{
 }
 .block_1{
   width: 70%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.item_header{
+  width: 100%;
+  border-bottom:1px solid #00bfa5;
 }
 .item .value{
   display: inline-block;

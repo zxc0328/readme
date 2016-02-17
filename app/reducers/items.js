@@ -18,6 +18,13 @@ export default function items(state = initialState, action) {
         }
         return item
       })
+    case types.UPDATE_ITEM:
+      return state.map((item,index) => {
+        if (item.id === action.updatedItem.id) {
+          return Object.assign({}, item, action.updatedItem)
+        }
+        return item
+      })
     case types.DETACH_FROM_ITEM:
       return state.map((item,index) => {
         if (item.id === action.itemId) {

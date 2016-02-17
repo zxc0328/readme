@@ -7,6 +7,8 @@ import {updateAtom} from '../actions/atoms'
 import {deleteAtom} from '../actions/atoms'
 import {attachToItem} from '../actions/items'
 import {detachFromItem} from '../actions/items'
+import {updateItem} from '../actions/items'
+import Editable from './Editable.jsx';
 
 @connect((state) => ({
   allAtoms: state.atoms
@@ -15,14 +17,21 @@ import {detachFromItem} from '../actions/items'
 	updateAtom,
 	deleteAtom,
 	attachToItem,
-	detachFromItem
+	detachFromItem,
+	updateItem
 })
 export default class Item extends React.Component {
 	render() {
-		const { allAtoms, item, createAtom, attachToItem, detachFromItem, updateAtom, deleteAtom } = this.props
+		const { allAtoms, item, createAtom, attachToItem, detachFromItem, updateAtom, deleteAtom,updateItem } = this.props
 		switch (this.props.type){
 							case 0:
 								return <div className="item">
+													<div className="item_header" onClick={() => updateItem({id: item.id, editing: true})}>
+														<Editable
+          									editing={item.editing}
+          									value={item.title}
+          									onEdit={title => updateItem({id: item.id, title, editing: false})}/>
+													</div>
 												<ItemInfo 
 												atoms={allAtoms} 
 												item={item} 

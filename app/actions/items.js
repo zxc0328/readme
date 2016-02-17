@@ -7,8 +7,18 @@ export function createItem(item) {
     item: {
       id: uuid.v4(),
       type: item.type,
-      atoms:[]
+      title: item.title,
+      atoms:[],
+      editing:false
     }
+  }
+}
+
+export const UPDATE_ITEM = 'UPDATE_ITEM'
+export function updateItem(updatedItem) {
+  return {
+    type: UPDATE_ITEM,
+    updatedItem
   }
 }
 
