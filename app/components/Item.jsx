@@ -44,7 +44,13 @@ export default class Item extends React.Component {
           							/>
 											 </div>
 							case 1:
-							  return <div className="item">hello</div>
+							  return <div className="item">
+							  				<ItemList 
+							  				atoms={allAtoms} 
+												item={item} 
+												createAtom={createAtom} 
+												attachToItem={attachToItem}/>
+							  			 </div>
 							default:
 							  return <div className="item"></div>
 						}

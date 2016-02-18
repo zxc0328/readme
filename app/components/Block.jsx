@@ -18,6 +18,6 @@ const itemTarget = {
 export default class Block extends React.Component {
 	render() {
 		const {connectDropTarget} = this.props
-		return connectDropTarget(<div className={'block '+this.props.className}>{ this.props.children }</div>)
+		return connectDropTarget(<div style={this.props.style} className={'block '+this.props.className}>{ this.props.children }</div>)
 	}
 }

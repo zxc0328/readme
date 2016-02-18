@@ -8,3 +8,11 @@ export function attachToBlock(obj) {
     blockId:obj.blockId
   }
 }
+
+export const CHANGE_BLOCK_LAYOUT = 'CHANGE_BLOCK_LAYOUT'
+export function changeBlockLayout(layoutName) {
+  return {
+    type: CHANGE_BLOCK_LAYOUT,
+    layoutName
+  }
+}
