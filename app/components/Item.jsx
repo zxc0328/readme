@@ -42,7 +42,8 @@ const itemTarget = {
   connectDropTarget: connect.dropTarget()
 }))
 @connect((state) => ({
-  allAtoms: state.atoms
+  allAtoms: state.atoms,
+  global: state.global
 }), {
 	createAtom,
 	updateAtom,
@@ -53,7 +54,9 @@ const itemTarget = {
 })
 export default class Item extends React.Component {
 	render() {
-		const { connectDragSource, connectDropTarget, allAtoms, item, createAtom, attachToItem, detachFromItem, updateAtom, deleteAtom,updateItem } = this.props
+		const { connectDragSource, connectDropTarget, allAtoms, item, 
+			createAtom, attachToItem, detachFromItem, updateAtom, 
+			deleteAtom, updateItem, global } = this.props
 		const dragSource = item.editing ? a => a : connectDragSource;
 		switch (this.props.type){
 							case 0:
@@ -68,6 +71,7 @@ export default class Item extends React.Component {
 												atoms={allAtoms} 
 												item={item} 
 												atomType={0}
+												global={global}
 												createAtom={createAtom} 
 												attachToItem={attachToItem}
           							/>
@@ -77,6 +81,7 @@ export default class Item extends React.Component {
 							  				<ItemList 
 							  				atoms={allAtoms} 
 												item={item} 
+												global={global}
 												createAtom={createAtom} 
 												attachToItem={attachToItem}/>
 							  			 </div>))
@@ -92,6 +97,7 @@ export default class Item extends React.Component {
 												atoms={allAtoms} 
 												item={item} 
 												atomType={2}
+												global={global}
 												createAtom={createAtom} 
 												attachToItem={attachToItem}
           							/>

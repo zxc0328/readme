@@ -7,12 +7,12 @@ const two_column_block = {
 export default {
   two_column:{
   	block_0:{
-			width: '40%',
+			width: '30%',
   		backgroundColor: '#00bfa5',
   		...two_column_block
   	},
   	block_1:{
-			width: '60%',
+			width: '70%',
   		padding: '20px',
   		boxSizing: 'border-box',
   		...two_column_block

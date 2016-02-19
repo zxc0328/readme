@@ -19,6 +19,6 @@ export default class ItemProto extends React.Component {
 	render() {
 		const { connectDragSource } = this.props
 		return connectDragSource(<div className="item_proto">
-			Type: { this.props.type }</div>)
+			{ this.props.description }</div>)
 	}
 }

@@ -3,13 +3,17 @@ import Atom from './Atom.jsx'
 
 export default class ItemInfo extends React.Component {
 	render() {
-		const { atoms, item, onValueClick, onEdit, onDelete } = this.props
+		const { atoms, item, onValueClick, onEdit, onDelete, global } = this.props
 			const itemAtoms = item.atoms.map((a) => atoms[
       atoms.findIndex((atom) => atom.id === a.id)
     	]).filter((atom) => atom)
-	
+		console.log(global)
 		return <div className="info">
-						<button className="info_addBtn" onClick={this.onBtnClick.bind(this)}>add</button>
+						{(() => {
+        			if(global.editing){
+        				return <button className="info_addBtn" onClick={this.onBtnClick.bind(this)}>add</button>
+        			}
+      			})()}
 						{itemAtoms.map( (atom) => 
 							<Atom type={atom.type} key={atom.id} atom={atom}/>
 						)}
