@@ -67,6 +67,7 @@ export default class Item extends React.Component {
 												<ItemInfo 
 												atoms={allAtoms} 
 												item={item} 
+												atomType={0}
 												createAtom={createAtom} 
 												attachToItem={attachToItem}
           							/>
@@ -79,6 +80,22 @@ export default class Item extends React.Component {
 												createAtom={createAtom} 
 												attachToItem={attachToItem}/>
 							  			 </div>))
+							case 2:
+							  return dragSource(connectDropTarget(<div className="item">
+													<div className="item_header" onClick={() => updateItem({id: item.id, editing: true})}>
+														<Editable
+          									editing={item.editing}
+          									value={item.title}
+          									onEdit={title => updateItem({id: item.id, title, editing: false})}/>
+													</div>
+												<ItemInfo 
+												atoms={allAtoms} 
+												item={item} 
+												atomType={2}
+												createAtom={createAtom} 
+												attachToItem={attachToItem}
+          							/>
+											 </div>))
 							default:
 							  return dragSource(connectDropTarget(<div className="item"></div>))
 						}

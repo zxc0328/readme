@@ -16,8 +16,8 @@ export default class ItemInfo extends React.Component {
 					 </div>
 	}
 	onBtnClick() {
-		const { item, createAtom, attachToItem } = this.props
-		const obj = createAtom({type:0})
+		const { item, atomType, createAtom, attachToItem } = this.props
+		const obj = createAtom({type:atomType})
 		attachToItem({itemId:item.id, atomId:obj.atom.id})
 	}
 }

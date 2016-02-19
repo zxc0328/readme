@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import AtomListItem from './AtomListItem.jsx'
 import AtomInfoItem from './AtomInfoItem.jsx'
+import AtomListItemTitleLess from './AtomListItemTitleLess.jsx'
 import {updateAtom} from '../actions/atoms'
 
 @connect(() => ({
@@ -22,6 +23,13 @@ export default class Atom extends React.Component {
 							case 1:
 								return <div className="atom">
 												<AtomInfoItem
+												/>
+											 </div>
+							case 2:
+								return <div className="atom">
+												<AtomListItemTitleLess
+												atom={atom}
+												updateAtom={updateAtom}
 												/>
 											 </div>
 							default:
