@@ -1,25 +1,25 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import Notes from './Notes.jsx';
-import Editable from './Editable.jsx';
-import {DropTarget} from 'react-dnd';
-import ItemTypes from '../constants/itemTypes';
-import * as laneActions from '../actions/lanes';
-import * as noteActions from '../actions/notes';
+import React from 'react'
+import {connect} from 'react-redux'
+import Notes from './Notes.jsx'
+import Editable from './Editable.jsx'
+import {DropTarget} from 'react-dnd'
+import ItemTypes from '../constants/itemTypes'
+import * as laneActions from '../actions/lanes'
+import * as noteActions from '../actions/notes'
 
 const noteTarget = {
   hover(targetProps, monitor) {
-    const sourceProps = monitor.getItem();
-    const sourceId = sourceProps.id;
+    const sourceProps = monitor.getItem()
+    const sourceId = sourceProps.id
 
     if(!targetProps.lane.notes.length) {
       targetProps.attachToLane(
         targetProps.lane.id,
         sourceId
-      );
+      )
     }
   }
-};
+}
 
 @connect((state) => ({
   allNotes: state.notes

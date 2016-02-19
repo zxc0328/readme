@@ -5,10 +5,19 @@ import ItemTypes from '../constants/itemTypes';
 const itemTarget = {
   drop(targetProps, monitor) {
     const sourceProps = monitor.getItem()
-    const type = sourceProps.type
-    const result = targetProps.createItem({type,title:'Experience'})
     const blockId = targetProps.id
-    targetProps.attachToBlock({blockId,itemId:result.item.id})
+    if (sourceProps.create){
+      const type = sourceProps.type
+      const result = targetProps.createItem({type,title:'Experience'})
+      targetProps.attachToBlock({blockId,itemId:result.item.id})
+    }else{
+      if(targetProps.items.length === 0){
+        const sourceBlockId = sourceProps.blockId
+        const itemId = sourceProps.id
+        targetProps.detachFromBlock({blockId:sourceBlockId,itemId})
+        targetProps.attachToBlock({blockId,itemId})
+      }
+    }
   }
 }
 

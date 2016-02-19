@@ -1,26 +1,26 @@
 import React from 'react';
-import {DragSource, DropTarget} from 'react-dnd';
-import ItemTypes from '../constants/itemTypes';
+import {DragSource, DropTarget} from 'react-dnd'
+import ItemTypes from '../constants/itemTypes'
 
 const noteSource = {
   beginDrag(props) {
     return {
-      id: props.id
+      id: props.id,
+      move:true
     };
   },
   isDragging(props, monitor) {
-    return props.id === monitor.getItem().id;
+    return props.id === monitor.getItem().id
   }
 };
 
 const noteTarget = {
   hover(targetProps, monitor) {
-    const targetId = targetProps.id;
-    const sourceProps = monitor.getItem();
-    const sourceId = sourceProps.id;
-    if(sourceId !== targetId) {
-      targetProps.onMove({sourceId, targetId});
-
+    const targetId = targetProps.id
+    const sourceProps = monitor.getItem()
+    const sourceId = sourceProps.id
+    if(sourceId !== targetId && sourceProps.move) {
+      targetProps.onMove({sourceId, targetId})
     }
   }
 };

@@ -5,7 +5,8 @@ import ItemTypes from '../constants/itemTypes';
 const itemSource = {
   beginDrag(props) {
     return {
-      type: props.type
+      type: props.type,
+      create:true
     };
   }
 };

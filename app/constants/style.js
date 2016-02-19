@@ -22,7 +22,7 @@ export default {
   	block_0:{
 			display:'block',
 			height:'150px',
-			backgroundColor:'black'
+			backgroundColor:'grey'
   	},
   	block_1:{
   		width: '50%',

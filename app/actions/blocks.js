@@ -9,6 +9,15 @@ export function attachToBlock(obj) {
   }
 }
 
+export const DETACH_FROM_BLOCK = 'DETACH_FROM_BLOCK'
+export function detachFromBlock(obj) {
+  return {
+    type: DETACH_FROM_BLOCK,
+    itemId:obj.itemId,
+    blockId:obj.blockId
+  }
+}
+
 export const CHANGE_BLOCK_LAYOUT = 'CHANGE_BLOCK_LAYOUT'
 export function changeBlockLayout(layoutName) {
   return {
@@ -16,3 +25,15 @@ export function changeBlockLayout(layoutName) {
     layoutName
   }
 }
+
+export const MOVE_ITEM = 'MOVE_ITEM'
+export function moveItem(obj) {
+  return {
+    type: MOVE_ITEM,
+    sourceId:obj.sourceId,
+    targetId:obj.targetId
+  }
+}
+
+
+

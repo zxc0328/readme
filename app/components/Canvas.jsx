@@ -4,7 +4,9 @@ import Block from './Block.jsx'
 import {connect} from 'react-redux'
 import {createItem} from '../actions/items'
 import {attachToBlock} from '../actions/blocks'
+import {detachFromBlock} from '../actions/blocks'
 import {changeBlockLayout} from '../actions/blocks'
+import {moveItem} from '../actions/blocks'
 
 @connect((state) => ({
 	allBlocks: state.blocks,
@@ -12,20 +14,24 @@ import {changeBlockLayout} from '../actions/blocks'
 }), {
 	createItem,
 	attachToBlock,
-	changeBlockLayout
+	detachFromBlock,
+	changeBlockLayout,
+	moveItem
 })
 export default class Canvas extends React.Component {
 	render() {
-		const { allBlocks,  allItems, createItem, attachToBlock, changeBlockLayout } = this.props
+		const { allBlocks,  allItems, createItem, attachToBlock, 
+			detachFromBlock, changeBlockLayout, moveItem} = this.props
 		const blocks = []
-		console.log(changeBlockLayout)
 allBlocks.map((block,index) => {
-									const blockItems = block.items.map((i) => allItems[
-     							 allItems.findIndex((item) => item.id === i.id)
+									const blockItems = block.items.map((id) => allItems[
+     							 allItems.findIndex((item) => item.id === id)
     							]).filter((item) => item)
-									blocks.push(<Block key={index} id={block.id} style={block.style} className={'block_'+block.id} createItem={createItem} attachToBlock={attachToBlock}>
+									blocks.push(<Block key={index} id={block.id} style={block.style} className={'block_'+block.id} 
+										createItem={createItem} attachToBlock={attachToBlock} detachFromBlock={detachFromBlock}
+									  items={block.items}>
 													{blockItems.map( (item) => 
-						 							<Item key={item.id} item={item} { ...item } />)}
+						 							<Item key={item.id}  blockId={block.id} item={item} { ...item } onMove={moveItem}/>)}
 						 							</Block>)})
 		return <div className="canvas">
 						 {blocks}
