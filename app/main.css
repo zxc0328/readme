@@ -11,6 +11,8 @@ body{
 .item{
   display: block;
   font-size: 24px;
+  position: relative;
+  padding: 20px;
 }
 .canvas{
   font-size: 0;
@@ -24,6 +26,7 @@ body{
   width: 100%;
   min-height: 40px;
   font-size: 20px;
+
 }
 .item_header{
   width: 100%;
@@ -59,7 +62,18 @@ body{
   margin-right: auto;
   border-radius: 50%;
 }
-
+.info_addBtn{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: blueviolet;
+  color: #fff;
+  outline: none;
+  border:none;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
 /**
  * panel
  */

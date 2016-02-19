@@ -1,6 +1,5 @@
 import React from 'react';
 import Atom from './Atom.jsx'
-import Editable from './Editable.jsx';
 
 export default class ItemInfo extends React.Component {
 	render() {
@@ -10,16 +9,9 @@ export default class ItemInfo extends React.Component {
     	]).filter((atom) => atom)
 	
 		return <div className="info">
-						<button onClick={this.onBtnClick.bind(this)}>add</button>
+						<button className="info_addBtn" onClick={this.onBtnClick.bind(this)}>add</button>
 						{itemAtoms.map( (atom) => 
-							<Atom type={atom.type} key={atom.id}>
-								<Editable
-          			editing={atom.editing}
-          			value={atom.text}
-          			onValueClick={onValueClick.bind(null, atom.id)}
-          			onEdit={onEdit.bind(null, atom.id)}
-          			onDelete={onDelete.bind(null, atom.id)} />
-							</Atom>
+							<Atom type={atom.type} key={atom.id} atom={atom}/>
 						)}
 					 </div>
 	}

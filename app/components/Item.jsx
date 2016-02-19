@@ -69,10 +69,6 @@ export default class Item extends React.Component {
 												item={item} 
 												createAtom={createAtom} 
 												attachToItem={attachToItem}
-												onValueClick={id => updateAtom({id, editing: true})} 
-												onEdit={(id, text) => updateAtom({id, text, editing: false})}
-          							onDelete={id => { detachFromItem (item.id, id) 
-          																deleteAtom(id)}}
           							/>
 											 </div>))
 							case 1:

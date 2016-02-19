@@ -1,14 +1,17 @@
 import React from 'react';
 
 export default class Editable extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {editing:false,value:this.props.value}
+  }
   render() {
-    const {value, onEdit, onValueClick, editing, ...props} = this.props;
-
+    const {value, onEdit, onValueClick, ...props} = this.props;
     return (
       <div {...props}>
-        {editing ? this.renderEdit() : this.renderValue()}
+        {(this.state.editing || this.state.value === '') ? this.renderEdit() : this.renderValue()}
       </div>
-    );
+    )
   }
   renderEdit = () => {
     return <input type="text"
@@ -16,33 +19,35 @@ export default class Editable extends React.Component {
         (e) => e ? e.selectionStart = this.props.value.length : null
       }
       autoFocus={true}
-      defaultValue={this.props.value}
+      defaultValue={this.state.value}
       onBlur={this.finishEdit}
-      onKeyPress={this.checkEnter} />;
-  };
+      onKeyPress={this.checkEnter}
+      placeholder={this.props.placeholder}/>;
+  }
   renderValue = () => {
-    const onDelete = this.props.onDelete;
-
     return (
-      <div onClick={this.props.onValueClick}>
-        <span className="value">{this.props.value}</span>
-        {onDelete ? this.renderDelete() : null }
+      <div onClick={this.onValueClick} style={this.props.style}>
+        <span className="value">{this.state.value}</span>
       </div>
-    );
-  };
-  renderDelete = () => {
-    return <button className="delete" onClick={this.props.onDelete}>x</button>;
-  };
+    )
+  }
+  onValueClick = () => {
+    this.setState({editing:true})
+  }
   checkEnter = (e) => {
-    if(e.key === 'Enter') {
-      this.finishEdit(e);
+    if (!this.state.editing){
+      this.setState({editing:true})
     }
-  };
+    if(e.key === 'Enter') {
+      this.finishEdit(e)
+    }
+  }
   finishEdit = (e) => {
-    const value = e.target.value;
+    this.setState({editing:false,value:e.target.value})
+    const value = e.target.value
 
     if(this.props.onEdit && value.trim()) {
-      this.props.onEdit(value);
+      this.props.onEdit(value)
     }
-  };
+  }
 }
