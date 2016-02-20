@@ -14,6 +14,14 @@ export function createItem(item) {
   }
 }
 
+export const DELETE_ITEM = 'DELETE_ITEM'
+export function deleteItem(id) {
+  return {
+    type: DELETE_ITEM,
+    id
+  }
+}
+
 export const UPDATE_ITEM = 'UPDATE_ITEM'
 export function updateItem(updatedItem) {
   return {
@@ -37,5 +45,15 @@ export function detachFromItem(obj) {
     type: DETACH_FROM_ITEM,
     itemId: obj.itemId,
     atomId: obj.atomId
+  }
+}
+
+export const MOVE_ATOM = 'MOVE_ATOM'
+export function moveAtom(obj) {
+  return {
+    type:MOVE_ATOM,
+    sourceId:obj.sourceId,
+    targetId:obj.targetId,
+    itemId:obj.itemId
   }
 }

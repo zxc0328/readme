@@ -10,11 +10,11 @@ const style = {
 export default class AtomListItemTitleLess extends React.Component {
 	render() {
 		const { updateAtom, atom } = this.props
-		console.log('hhhhh')
 		return <div className="list_item">
 							<Editable
 							  key={0}
           			value={atom.content}
+          			inputType={0}
 								style={style.title}
 								placeholder='click to enter content'
 								onValueClick={(val) => updateAtom({editing:true})}

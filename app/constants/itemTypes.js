@@ -1,4 +1,5 @@
 export default {
   NOTE: 'note',
-  ITEM: 'item'
+  ITEM: 'item',
+  ATOM: 'atom'
 };

@@ -7,6 +7,7 @@ import {connect} from 'react-redux'
 import {createAtom} from '../actions/atoms'
 import {updateAtom} from '../actions/atoms'
 import {deleteAtom} from '../actions/atoms'
+import {moveAtom} from '../actions/items'
 import {attachToItem} from '../actions/items'
 import {detachFromItem} from '../actions/items'
 import {updateItem} from '../actions/items'
@@ -48,6 +49,7 @@ const itemTarget = {
 	createAtom,
 	updateAtom,
 	deleteAtom,
+	moveAtom,
 	attachToItem,
 	detachFromItem,
 	updateItem
@@ -56,8 +58,8 @@ export default class Item extends React.Component {
 	render() {
 		const { connectDragSource, connectDropTarget, allAtoms, item, 
 			createAtom, attachToItem, detachFromItem, updateAtom, 
-			deleteAtom, updateItem, global } = this.props
-		const dragSource = item.editing ? a => a : connectDragSource;
+			deleteAtom, updateItem, global, blockId, moveAtom } = this.props
+		const dragSource = item.editing ? a => a : connectDragSource
 		switch (this.props.type){
 							case 0:
 								return dragSource(connectDropTarget(<div className="item">
@@ -72,8 +74,10 @@ export default class Item extends React.Component {
 												item={item} 
 												atomType={0}
 												global={global}
+												blockId={blockId}
 												createAtom={createAtom} 
 												attachToItem={attachToItem}
+												onMove={moveAtom}
           							/>
 											 </div>))
 							case 1:
@@ -82,7 +86,9 @@ export default class Item extends React.Component {
 							  				atoms={allAtoms} 
 												item={item} 
 												global={global}
+												blockId={blockId}
 												createAtom={createAtom} 
+												onMove={moveAtom}
 												attachToItem={attachToItem}/>
 							  			 </div>))
 							case 2:
@@ -98,6 +104,8 @@ export default class Item extends React.Component {
 												item={item} 
 												atomType={2}
 												global={global}
+												blockId={blockId}
+												onMove={moveAtom}
 												createAtom={createAtom} 
 												attachToItem={attachToItem}
           							/>

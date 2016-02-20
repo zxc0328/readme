@@ -14,7 +14,9 @@ export default class Editable extends React.Component {
     )
   }
   renderEdit = () => {
-    return <input type="text"
+    const { inputType } = this.props;
+    if (inputType === 1){
+      return <textarea type="text"
       ref={
         (e) => e ? e.selectionStart = this.state.value.length : null
       }
@@ -23,6 +25,17 @@ export default class Editable extends React.Component {
       onBlur={this.finishEdit}
       onKeyPress={this.checkEnter}
       placeholder={this.props.placeholder}/>;
+    }else{
+      return <input type="text"
+      ref={
+        (e) => e ? e.selectionStart = this.state.value.length : null
+      }
+      autoFocus={true}
+      defaultValue={this.state.value}
+      onBlur={this.finishEdit}
+      onKeyPress={this.checkEnter}
+      placeholder={this.props.placeholder}/>;
+    }
   }
   renderValue = () => {
     return (
