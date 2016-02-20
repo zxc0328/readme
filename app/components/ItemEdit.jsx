@@ -16,8 +16,9 @@ import {detachFromBlock} from '../actions/blocks'
 })
 export default class ItemEdit extends React.Component {
 	render() {
+		const { noAdd } = this.props
 		return <div className="info_btn">
-						<button className="info_btn--add" onClick={() => this.onBtnClick(0)}>+</button>
+						{ noAdd ? null : <button className="info_btn--add" onClick={() => this.onBtnClick(0)}>+</button>}
       			<button className="info_btn--delete" onClick={() => this.onBtnClick(1)}>x</button>
 					 </div>
 	}

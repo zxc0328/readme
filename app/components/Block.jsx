@@ -1,6 +1,7 @@
 import React from 'react';
 import {DropTarget} from 'react-dnd'
-import ItemTypes from '../constants/itemTypes';
+import ItemTypes from '../constants/itemTypes'
+import itemInit from '../constants/itemInit'
 
 const itemTarget = {
   drop(targetProps, monitor) {
@@ -8,8 +9,15 @@ const itemTarget = {
     const blockId = targetProps.id
     if (sourceProps.create){
       const type = sourceProps.type
-      const result = targetProps.createItem({type,title:'Experience'})
-      targetProps.attachToBlock({blockId,itemId:result.item.id})
+      const newItemId = targetProps.createItem({type,title:'Experience'}).item.id
+      targetProps.attachToBlock({blockId,itemId:newItemId})
+      if (itemInit[type]){
+        const atomType = itemInit[type]
+        atomType.map((type) => {
+          const obj = targetProps.createAtom({type})
+          targetProps.attachToItem({itemId:newItemId, atomId:obj.atom.id})
+        })
+      }
     }else{
       if(targetProps.items.length === 0){
         const sourceBlockId = sourceProps.blockId

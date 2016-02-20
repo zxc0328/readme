@@ -66,6 +66,10 @@ body{
 .info_addBtn{
 
 }
+.list{
+  height: 200px;
+}
+
 /**
  * panel
  */

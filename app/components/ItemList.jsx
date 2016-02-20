@@ -1,24 +1,19 @@
-import React from 'react';
+import React from 'react'
 import Atom from './Atom.jsx'
-import Editable from './Editable.jsx';
+import ItemEdit from './ItemEdit.jsx'
 
 export default class ItemList extends React.Component {
 	render() {
-		const { atoms, item, onValueClick, onEdit, onDelete, onMove } = this.props
+		const { global, blockId, atomType, atoms, item, onValueClick, onEdit, onDelete, onMove } = this.props
 		const itemAtoms = item.atoms.map((id) => atoms[
       atoms.findIndex((atom) => atom.id === id)
     	]).filter((atom) => atom)
-	
+		
 		return <div className="list">
-						<button onClick={this.onBtnClick.bind(this)}>add</button>
+						{ global.editing ? <ItemEdit itemId={item.id} noAdd={true} blockId={blockId} atomType={atomType}/> : null }
 						{itemAtoms.map( (atom) => 
 							<Atom type={atom.type} key={atom.id} atom={atom} id={atom.id} itemId={item.id} onMove={onMove} />
 						)}
 					 </div>
-	}
-	onBtnClick() {
-		const { item, createAtom, attachToItem } = this.props
-		const obj = createAtom({type:1})
-		attachToItem({itemId:item.id, atomId:obj.atom.id})
 	}
 }

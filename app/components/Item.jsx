@@ -85,6 +85,7 @@ export default class Item extends React.Component {
 							  				<ItemList 
 							  				atoms={allAtoms} 
 												item={item} 
+												atomType={1}
 												global={global}
 												blockId={blockId}
 												createAtom={createAtom} 
