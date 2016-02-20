@@ -12,7 +12,8 @@ export default class ItemList extends React.Component {
 		return <div className="list">
 						{ global.editing ? <ItemEdit itemId={item.id} noAdd={true} blockId={blockId} atomType={atomType}/> : null }
 						{itemAtoms.map( (atom) => 
-							<Atom type={atom.type} key={atom.id} atom={atom} id={atom.id} itemId={item.id} onMove={onMove} />
+							<Atom type={atom.type} key={atom.id} atom={atom} 
+							id={atom.id} itemId={item.id} global={global} onMove={onMove} />
 						)}
 					 </div>
 	}
