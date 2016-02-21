@@ -13,6 +13,10 @@ export default {
     {
       typeName:'listItem',
       content:''
+    },
+    {
+      typeName:'svgBarItem',
+      width:100
     }
   ]
 };

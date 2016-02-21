@@ -78,6 +78,13 @@ body{
   right: 0;
   display: none;
 }
+.atom_svg_bar svg{
+  width: 80%;
+  transition: all;
+}
+.atom_svg_bar svg rect{
+  transition: all 1s;
+}
 /**
  * panel
  */

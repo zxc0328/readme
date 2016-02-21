@@ -6,9 +6,7 @@ export default class Editable extends React.Component {
     this.state = {editing:false,value:this.props.value}
   }
   render() {
-
     const {value, onEdit, onValueClick, ...props} = this.props;
-    console.log((this.state.editing || this.state.value === ''))
     return (
       <div {...props}>
         {(this.state.editing || this.state.value === '') ? this.renderEdit() : this.renderValue()}
@@ -46,8 +44,8 @@ export default class Editable extends React.Component {
       </div>
     )
   }
+  // fix endless rendering in safari
   shouldComponentUpdate (nextProps, nextState) {
-    console.log(nextProps, this.props)
     return nextProps != this.props
   }
   onValueClick = () => {

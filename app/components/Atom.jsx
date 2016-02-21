@@ -2,10 +2,15 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {DragSource, DropTarget} from 'react-dnd'
 import ItemTypes from '../constants/itemTypes'
+
+// import atom
 import AtomListItem from './AtomListItem.jsx'
 import AtomInfoItem from './AtomInfoItem.jsx'
+import AtomSvgBar from './AtomSvgBar.jsx'
 import AtomEdit from './AtomEdit.jsx'
 import AtomListItemTitleLess from './AtomListItemTitleLess.jsx'
+
+// import action
 import {updateAtom} from '../actions/atoms'
 
 const atomSource = {
@@ -61,6 +66,14 @@ export default class Atom extends React.Component {
 								return dragSource(connectDropTarget(<div className="atom">
 												{ global.editing ? <AtomEdit atomId={atom.id}/> : null}
 												<AtomListItemTitleLess
+												atom={atom}
+												updateAtom={updateAtom}
+												/>
+											 </div>))
+							case 3:
+								return dragSource(connectDropTarget(<div className="atom">
+												{ global.editing ? <AtomEdit atomId={atom.id}/> : null}
+												<AtomSvgBar
 												atom={atom}
 												updateAtom={updateAtom}
 												/>
