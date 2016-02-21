@@ -11,8 +11,12 @@ export default class Switcher extends React.Component {
 	render() {
 		const { global, changeBlockLayout } = this.props
 		return <div className='switcher' style = { (global.themeSwitcherVisibility ? {transform: 'translateY(0px)'}:{transform: 'translateY(100%)'}) }>
-							<div className='switcher_item' onClick={() => changeBlockLayout('two_column')}>Theme 1</div>
-							<div className='switcher_item' onClick={() => changeBlockLayout('top_one_bottom_two')}>Theme 2</div>
+							<div className='switcher_item' onClick={() => changeBlockLayout('two_column')}>
+								<img src="http://7oxh2b.com1.z0.glb.clouddn.com/readme_layout_1.png" alt="two_column"/>
+							</div>
+							<div className='switcher_item' onClick={() => changeBlockLayout('top_one_bottom_two')}>
+								<img src="http://7oxh2b.com1.z0.glb.clouddn.com/readme_layout_2.png" alt="top_one_bottom_two"/>
+							</div>
 					</div>
 	}
 }

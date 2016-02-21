@@ -22,11 +22,10 @@ export default {
   	block_0:{
 			display:'block',
 			height:'150px',
-			backgroundColor:'grey'
+			backgroundColor:'#333'
   	},
   	block_1:{
   		width: '50%',
-  		backgroundColor: '#00bfa5',
   		...two_column_block
   	},
   	block_2:{

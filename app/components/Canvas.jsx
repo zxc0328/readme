@@ -5,6 +5,7 @@ import Switcher from './Switcher.jsx'
 import {connect} from 'react-redux'
 import {createAtom} from '../actions/atoms'
 import {createItem} from '../actions/items'
+import {attachMutiToItem} from '../actions/items'
 import {attachToItem} from '../actions/items'
 import {attachToBlock} from '../actions/blocks'
 import {detachFromBlock} from '../actions/blocks'
@@ -17,6 +18,7 @@ import {themeSwitcherVisibility} from '../actions/global'
   global: state.global
 }), {
 	createAtom,
+	attachMutiToItem,
 	createItem,
 	attachToItem,
 	attachToBlock,
@@ -26,7 +28,7 @@ import {themeSwitcherVisibility} from '../actions/global'
 })
 export default class Canvas extends React.Component {
 	render() {
-		const { allBlocks,  allItems, createItem, attachToBlock, createAtom,
+		const { allBlocks,  allItems, createItem, attachMutiToItem, attachToBlock, createAtom,
 			detachFromBlock, changeBlockLayout, themeSwitcherVisibility, moveItem ,attachToItem, global} = this.props
 		const blocks = []
 	  let switcherFlag = global.themeSwitcherVisibility
@@ -35,7 +37,7 @@ allBlocks.map((block,index) => {
      							 allItems.findIndex((item) => item.id === id)
     							]).filter((item) => item)
 									blocks.push(<Block key={index} id={block.id} style={block.style} className={'block_'+block.id} 
-										createItem={createItem} createAtom={createAtom} attachToItem={attachToItem}
+										createItem={createItem} createAtom={createAtom} attachMutiToItem={attachMutiToItem} attachToItem={attachToItem}
 										attachToBlock={attachToBlock} detachFromBlock={detachFromBlock}
 									  items={block.items}>
 													{blockItems.map( (item) => 

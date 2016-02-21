@@ -39,6 +39,15 @@ export function attachToItem(obj) {
   }
 }
 
+export const ATTACH_MUTI_TO_ITEM = 'ATTACH_MUTI_TO_ITEM'
+export function attachMutiToItem(obj) {
+  return {
+    type: ATTACH_MUTI_TO_ITEM,
+    itemId: obj.itemId,
+    atomIds:obj.atomIds
+  }
+}
+
 export const DETACH_FROM_ITEM = 'DETACH_FROM_ITEM'
 export function detachFromItem(obj) {
   return {

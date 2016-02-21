@@ -13,10 +13,12 @@ const itemTarget = {
       targetProps.attachToBlock({blockId,itemId:newItemId})
       if (itemInit[type]){
         const atomType = itemInit[type]
+        const newAtoms = []
         atomType.map((type) => {
           const obj = targetProps.createAtom({type})
-          targetProps.attachToItem({itemId:newItemId, atomId:obj.atom.id})
+          newAtoms.push(obj.atom.id)
         })
+        targetProps.attachMutiToItem({itemId:newItemId, atomIds:newAtoms})
       }
     }else{
       if(targetProps.items.length === 0){

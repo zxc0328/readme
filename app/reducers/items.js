@@ -17,6 +17,15 @@ export default function items(state = initialState, action) {
         }
         return item
       })
+    case types.ATTACH_MUTI_TO_ITEM:
+      return state.map((item,index) => {
+        if (item.id === action.itemId) {
+          return Object.assign({}, item, {
+            atoms: item.atoms.concat(action.atomIds)
+          })
+        }
+        return item
+      })
     case types.UPDATE_ITEM:
       return state.map((item,index) => {
         if (item.id === action.updatedItem.id) {
