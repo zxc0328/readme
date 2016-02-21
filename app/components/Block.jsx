@@ -9,7 +9,7 @@ const itemTarget = {
     const blockId = targetProps.id
     if (sourceProps.create){
       const type = sourceProps.type
-      const newItemId = targetProps.createItem({type,title:'Experience'}).item.id
+      const newItemId = targetProps.createItem({type,title:'Click to edit title'}).item.id
       targetProps.attachToBlock({blockId,itemId:newItemId})
       if (itemInit[type]){
         const atomType = itemInit[type]

@@ -1,32 +1,35 @@
 import React from 'react'
 import Item from './Item.jsx'
 import Block from './Block.jsx'
+import Switcher from './Switcher.jsx'
 import {connect} from 'react-redux'
 import {createAtom} from '../actions/atoms'
 import {createItem} from '../actions/items'
 import {attachToItem} from '../actions/items'
 import {attachToBlock} from '../actions/blocks'
 import {detachFromBlock} from '../actions/blocks'
-import {changeBlockLayout} from '../actions/blocks'
 import {moveItem} from '../actions/blocks'
+import {themeSwitcherVisibility} from '../actions/global'
 
 @connect((state) => ({
 	allBlocks: state.blocks,
-  allItems: state.items
+  allItems: state.items,
+  global: state.global
 }), {
 	createAtom,
 	createItem,
 	attachToItem,
 	attachToBlock,
 	detachFromBlock,
-	changeBlockLayout,
-	moveItem
+	moveItem,
+	themeSwitcherVisibility
 })
 export default class Canvas extends React.Component {
 	render() {
 		const { allBlocks,  allItems, createItem, attachToBlock, createAtom,
-			detachFromBlock, changeBlockLayout, moveItem ,attachToItem} = this.props
+			detachFromBlock, changeBlockLayout, themeSwitcherVisibility, moveItem ,attachToItem, global} = this.props
 		const blocks = []
+	  let switcherFlag = global.themeSwitcherVisibility
 allBlocks.map((block,index) => {
 									const blockItems = block.items.map((id) => allItems[
      							 allItems.findIndex((item) => item.id === id)
@@ -39,11 +42,9 @@ allBlocks.map((block,index) => {
 						 							<Item key={item.id}  blockId={block.id} item={item} { ...item } onMove={moveItem}/>)}
 						 							</Block>)})
 		return <div className="canvas">
+						 <button className={'toggleSwticher'} onClick={() => themeSwitcherVisibility(!switcherFlag)}>Switch Theme</button>
 						 {blocks}
-						<div className="switcher">
-							<div onClick={() => changeBlockLayout('two_column')}>Theme 1</div>
-							<div onClick={() => changeBlockLayout('top_one_bottom_two')}>Theme 2</div>
-						</div>
+						 <Switcher/>
 		       </div>
 	}
 }

@@ -140,13 +140,25 @@ body{
 /**
  * theme switcher
  */
+.toggleSwticher{
+  position: fixed;
+  right: 20px;
+  bottom: 200px;
+}
 .switcher{
-  height: 100px;
+  transition: all .5s;
+  height: 200px;
+  border-top:1px solid #00bfa5;
+  background-color: rgba(255,255,255,0.6);
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: black;
   font-size: 20px;
-  color: white;
+  color: #00bfa5;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.switcher_item{
+  display: inline-block;
 }
