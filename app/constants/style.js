@@ -1,6 +1,6 @@
 const two_column_block = {
 	display: 'inline-block',
-  minHeight: '1000px',
+  minHeight: '875px',
   verticalAlign: 'top'
 }
 

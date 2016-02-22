@@ -7,7 +7,8 @@
     "deploy": "gh-pages -d build",
     "stats": "webpack --profile --json > stats.json",
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "server": "babel server.js --out-file server-c.js && node server-c.js"
   },
   "keywords": [
     "resume"
@@ -39,6 +40,7 @@
   "dependencies": {
     "babel-polyfill": "^6.5.0",
     "babel-register": "^6.5.2",
+    "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "node-uuid": "^1.4.7",
     "react": "^0.14.6",
@@ -47,6 +49,7 @@
     "react-dnd-html5-backend": "^2.0.2",
     "react-dom": "^0.14.6",
     "react-redux": "^4.0.6",
-    "redux": "^3.0.5"
+    "redux": "^3.0.5",
+    "wkhtmltopdf": "^0.1.5"
   }
 }

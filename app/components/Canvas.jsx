@@ -13,6 +13,7 @@ import {moveItem} from '../actions/blocks'
 import {themeSwitcherVisibility} from '../actions/global'
 
 @connect((state) => ({
+	allState: state,
 	allBlocks: state.blocks,
   allItems: state.items,
   global: state.global
@@ -28,7 +29,10 @@ import {themeSwitcherVisibility} from '../actions/global'
 })
 export default class Canvas extends React.Component {
 	render() {
-		const { allBlocks,  allItems, createItem, attachMutiToItem, attachToBlock, createAtom,
+		const btnStyle = {
+			fontSize:'20px'
+		}
+		const { allState, allBlocks,  allItems, createItem, attachMutiToItem, attachToBlock, createAtom,
 			detachFromBlock, changeBlockLayout, themeSwitcherVisibility, moveItem ,attachToItem, global} = this.props
 		const blocks = []
 	  let switcherFlag = global.themeSwitcherVisibility
@@ -44,9 +48,18 @@ allBlocks.map((block,index) => {
 						 							<Item key={item.id}  blockId={block.id} item={item} { ...item } onMove={moveItem}/>)}
 						 							</Block>)})
 		return <div className="canvas">
-						 <button className={'toggleSwticher'} onClick={() => themeSwitcherVisibility(!switcherFlag)}>Switch Theme</button>
-						 {blocks}
-						 <Switcher/>
+						 { global.editing ?
+						 <div>
+						 	<button className={'toggleSwticher'} onClick={() => themeSwitcherVisibility(!switcherFlag)}>Switch Theme</button>
+						 	<form action="http://localhost:3333/online" method="POST">
+								<input type="hidden" id="stateString" name="state" />
+								<button className="submit_btn" type="submit">Get online resume</button>
+						 	</form> 
+						 	<div className="beforeSubmit" onClick={() => document.getElementById("stateString").value = JSON.stringify(allState)}>console state</div>
+						 	<Switcher/>
+						 </div> 
+						 : null }
+						 {blocks}		
 		       </div>
 	}
 }
