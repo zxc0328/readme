@@ -16,6 +16,7 @@ export default class Panel extends React.Component {
 							<ItemProto type={0} description={'Item List with title'}/>
 							<ItemProto type={1} description={'Avatar Item'}/>
 							<ItemProto type={2} description={'Item List without title'}/>
+							<ItemProto type={3} description={'SVG Bar Item'}/>
 							<div>
 								<button onClick={() => {switchEdit(true)}}>EDIT</button>
 								<button onClick={() => {switchEdit(false)}}>PREVIEW</button>

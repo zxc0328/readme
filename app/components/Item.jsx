@@ -65,9 +65,9 @@ export default class Item extends React.Component {
 								return dragSource(connectDropTarget(<div className="item">
 													<div className="item_header" onClick={() => updateItem({id: item.id, editing: true})}>
 														<Editable
-          									editing={item.editing}
           									value={item.title}
           									inputType={'text'}
+          									onValueClick={() => updateItem({id:item.id, editing:true})}
           									onEdit={title => updateItem({id: item.id, title, editing: false})}>
           										<span className="value">{item.title}</span>
           									</Editable>
@@ -99,9 +99,9 @@ export default class Item extends React.Component {
 							  return dragSource(connectDropTarget(<div className="item">
 													<div className="item_header" onClick={() => updateItem({id: item.id, editing: true})}>
 														<Editable
-          									editing={item.editing}
           									value={item.title}
           									inputType={'text'}
+          									onValueClick={() => updateItem({id:item.id, editing:true})}
           									onEdit={title => updateItem({id: item.id, title, editing: false})}>
           										<span className="value">{item.title}</span>
           									</Editable>
@@ -110,6 +110,28 @@ export default class Item extends React.Component {
 												atoms={allAtoms} 
 												item={item} 
 												atomType={2}
+												global={global}
+												blockId={blockId}
+												onMove={moveAtom}
+												createAtom={createAtom} 
+												attachToItem={attachToItem}
+          							/>
+											 </div>))
+							case 3:
+							  return dragSource(connectDropTarget(<div className="item">
+													<div className="item_header" onClick={() => updateItem({id: item.id, editing: true})}>
+														<Editable
+          									value={item.title}
+          									inputType={'text'}
+          									onValueClick={() => updateItem({id:item.id, editing:true})}
+          									onEdit={title => updateItem({id: item.id, title, editing: false})}>
+          										<span className="value">{item.title}</span>
+          									</Editable>
+													</div>
+												<ItemInfo 
+												atoms={allAtoms} 
+												item={item} 
+												atomType={3}
 												global={global}
 												blockId={blockId}
 												onMove={moveAtom}

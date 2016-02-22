@@ -7,10 +7,17 @@ export default class AtomSvgBar extends React.Component {
 		const width = (atom.width / 100) * 299
 		return <div className="atom_svg_bar">
 							<Editable
+          			value={atom.title}
+								inputType={'text'}
+								onValueClick={(val) => this.updateEditingState(atom, itemId, updateAtom, updateItem)}
+          			onEdit={(val) => this.updateEditedState('title', val, atom, itemId, updateAtom, updateItem)}>
+          				<span className="value">{atom.title}</span>
+          		</Editable>
+							<Editable
           			value={atom.width}
 								inputType={'range'}
-								onValueClick={(val) => this.updateEditState(atom, itemId, updateAtom, updateItem) }
-          			onEdit={(val) => updateAtom({id:atom.id, width:val,editing:false})}>
+								onValueClick={() => this.updateEditingState(atom, itemId, updateAtom, updateItem)}
+          			onEdit={(val) => this.updateEditedState('width', val, atom, itemId, updateAtom, updateItem)}>
           				<svg viewBox="0 0 339 40" version="1.1" xmlns="http://www.w3.org/2000/svg" >
     								<g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" >
         						<g id="prigressBar">
@@ -24,8 +31,17 @@ export default class AtomSvgBar extends React.Component {
           		</Editable>
 					 </div>
 	}
-	updateEditState (atom, itemId, updateAtom, updateItem) {
+	updateEditingState (atom, itemId, updateAtom, updateItem) {
 		updateAtom({id:atom.id, editing:true}) 
+		updateItem({id:itemId, editing:true})
+	}
+	updateEditedState (key, val, atom, itemId, updateAtom, updateItem){
+		let obj = {
+			editing:false,
+			id:atom.id
+		}
+		obj[key] = val
+		updateAtom(obj)
 		updateItem({id:itemId, editing:true})
 	}
 }

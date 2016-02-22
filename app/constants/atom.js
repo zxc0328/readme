@@ -16,6 +16,7 @@ export default {
     },
     {
       typeName:'svgBarItem',
+      title:'',
       width:100
     }
   ]
