@@ -67,7 +67,10 @@ export default class Item extends React.Component {
 														<Editable
           									editing={item.editing}
           									value={item.title}
-          									onEdit={title => updateItem({id: item.id, title, editing: false})}/>
+          									inputType={'text'}
+          									onEdit={title => updateItem({id: item.id, title, editing: false})}>
+          										<span className="value">{item.title}</span>
+          									</Editable>
 													</div>
 												<ItemInfo 
 												atoms={allAtoms} 
@@ -98,7 +101,10 @@ export default class Item extends React.Component {
 														<Editable
           									editing={item.editing}
           									value={item.title}
-          									onEdit={title => updateItem({id: item.id, title, editing: false})}/>
+          									inputType={'text'}
+          									onEdit={title => updateItem({id: item.id, title, editing: false})}>
+          										<span className="value">{item.title}</span>
+          									</Editable>
 													</div>
 												<ItemInfo 
 												atoms={allAtoms} 

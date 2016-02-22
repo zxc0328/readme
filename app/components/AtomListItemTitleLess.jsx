@@ -14,11 +14,13 @@ export default class AtomListItemTitleLess extends React.Component {
 							<Editable
 							  key={0}
           			value={atom.content}
-          			inputType={0}
+          			inputType={'text'}
 								style={style.title}
 								placeholder='click to enter content'
-								onValueClick={(val) => updateAtom({editing:true})}
-          			onEdit={(val) => updateAtom({id:atom.id, content:val,editing:false})} />
+								onValueClick={(val) => updateAtom({id:atom.id, editing:true})}
+          			onEdit={(val) => updateAtom({id:atom.id, content:val,editing:false})}>
+          			<span className="value">{atom.content}</span>
+          		</Editable>
 					 </div>
 	}
 }

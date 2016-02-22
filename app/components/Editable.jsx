@@ -15,40 +15,43 @@ export default class Editable extends React.Component {
   }
   renderEdit = () => {
     const { inputType } = this.props;
-    if (inputType === 1){
-      return <textarea type="text"
-      ref={
-        (e) => e ? e.selectionStart = this.state.value.length : null
-      }
-      autoFocus={true}
-      defaultValue={this.state.value}
-      onBlur={this.finishEdit}
-      onKeyPress={this.checkEnter}
-      placeholder={this.props.placeholder}/>;
-    }else{
-      return <input type="text"
-      ref={
-        (e) => e ? e.selectionStart = this.state.value.length : null
-      }
-      autoFocus={true}
-      defaultValue={this.state.value}
-      onBlur={this.finishEdit}
-      onKeyPress={this.checkEnter}
-      placeholder={this.props.placeholder}/>;
+    switch (inputType) {
+      case 'textarea':
+        return <textarea type="text"
+        autoFocus={true}
+        defaultValue={this.state.value}
+        onBlur={this.finishEdit}
+        onKeyPress={this.checkEnter}
+        placeholder={this.props.placeholder}/>
+      case 'text':
+        return <input type="text"
+        autoFocus={true}
+        defaultValue={this.state.value}
+        onBlur={this.finishEdit}
+        onKeyPress={this.checkEnter}
+        placeholder={this.props.placeholder}/>;
+      case 'range':
+        return <div>
+                <input type="range" defaultValue={this.state.value} onChange={this.onRangeChange}/>
+                <div onClick={this.finishRangeEdit}>done</div>
+               </div>
+      default:
+        return
     }
   }
   renderValue = () => {
     return (
       <div onClick={this.onValueClick} style={this.props.style}>
-        <span className="value">{this.state.value}</span>
+       { this.props.children }
       </div>
     )
   }
   // fix endless rendering in safari
   shouldComponentUpdate (nextProps, nextState) {
-    return nextProps != this.props
+    return (nextProps != this.props) || (nextState != this.state)
   }
   onValueClick = () => {
+    this.props.onValueClick()
     this.setState({editing:true})
   }
   checkEnter = (e) => {
@@ -59,6 +62,19 @@ export default class Editable extends React.Component {
       this.finishEdit(e)
     }
   }
+
+  onRangeChange = (e) => {
+    this.setState({value:e.target.value.trim()})
+  }
+  
+  finishRangeEdit = (e) => {
+    this.setState({editing:false})
+    const value = this.state.value
+    if(this.props.onEdit) {
+      this.props.onEdit(value)
+    }
+  } 
+
   finishEdit = (e) => {
     this.setState({editing:false,value:e.target.value})
     const value = e.target.value

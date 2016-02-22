@@ -12,6 +12,7 @@ import AtomListItemTitleLess from './AtomListItemTitleLess.jsx'
 
 // import action
 import {updateAtom} from '../actions/atoms'
+import {updateItem} from '../actions/items'
 
 const atomSource = {
   beginDrag(props) {
@@ -41,11 +42,12 @@ const atomTarget = {
 }))
 @connect(() => ({
 }), {
-	updateAtom
+	updateAtom,
+	updateItem
 })
 export default class Atom extends React.Component {
 	render() {
-		const { atom, updateAtom, connectDragSource, connectDropTarget, global } = this.props
+		const { atom, itemId, updateAtom, updateItem, connectDragSource, connectDropTarget, global } = this.props
 		const dragSource = atom.editing ? a => a : connectDragSource
 		switch (this.props.type){
 							case 0:
@@ -53,7 +55,9 @@ export default class Atom extends React.Component {
 												{ global.editing ? <AtomEdit atomId={atom.id}/> : null}
 												<AtomListItem
 												atom={atom}
+												itemId={itemId}
 												updateAtom={updateAtom}
+												updateItem={updateItem}
 												/>
 											 </div>))
 							case 1:
@@ -67,7 +71,9 @@ export default class Atom extends React.Component {
 												{ global.editing ? <AtomEdit atomId={atom.id}/> : null}
 												<AtomListItemTitleLess
 												atom={atom}
+												itemId={itemId}
 												updateAtom={updateAtom}
+												updateItem={updateItem}
 												/>
 											 </div>))
 							case 3:
@@ -75,7 +81,9 @@ export default class Atom extends React.Component {
 												{ global.editing ? <AtomEdit atomId={atom.id}/> : null}
 												<AtomSvgBar
 												atom={atom}
+												itemId={itemId}
 												updateAtom={updateAtom}
+												updateItem={updateItem}
 												/>
 											 </div>))
 							default:

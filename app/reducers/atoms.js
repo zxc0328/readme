@@ -12,6 +12,7 @@ export default function atoms(state = initialState, action) {
 		case types.UPDATE_ATOM:
 			return state.map((atom, index)=>{
 				if(atom.id === action.atom.id){
+					console.log(action.atom.editing)
 					return Object.assign({}, atom, action.atom)
 				}
 				return atom
