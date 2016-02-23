@@ -1,4 +1,5 @@
 import React from 'react'
+import superagent from 'superagent'
 import Item from './Item.jsx'
 import Block from './Block.jsx'
 import Switcher from './Switcher.jsx'
@@ -51,15 +52,26 @@ allBlocks.map((block,index) => {
 						 { global.editing ?
 						 <div>
 						 	<button className={'toggleSwticher'} onClick={() => themeSwitcherVisibility(!switcherFlag)}>Switch Theme</button>
-						 	<form action="http://localhost:3333/online" method="POST">
-								<input type="hidden" id="stateString" name="state" />
-								<button className="submit_btn" type="submit">Get online resume</button>
-						 	</form> 
-						 	<div className="beforeSubmit" onClick={() => document.getElementById("stateString").value = JSON.stringify(allState)}>console state</div>
+						 		<form action="http://localhost:3333/gethtml" method="POST">
+									<input type="hidden" id="stateString" name="state" />
+									<button onClick={() => document.getElementById("stateString").value = JSON.stringify(allState)} className="submit_btn" type="submit">Get online resume</button>
+						 		</form> 
+						 	<button className="beforeSubmit" onClick={ () => this.onGetPdfClick() }>getPDF</button>
 						 	<Switcher/>
 						 </div> 
 						 : null }
 						 {blocks}		
 		       </div>
+	}
+
+	onGetPdfClick() {
+		const { allState } = this.props
+			superagent
+  		.post('http://localhost:3333/getpdf')
+  		.send({ state:JSON.stringify(allState)})
+  		.set('Accept', 'application/json')
+  		.end(function(err, res){
+  			window.location.href = '/pdf/' + JSON.parse(res.text).fileName
+  		})
 	}
 }

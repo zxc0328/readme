@@ -11,11 +11,11 @@ const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
   app: path.join(__dirname, 'app'),
   build: path.join(__dirname, 'build')
-};
+}
 const ENV = {
   host: process.env.HOST || 'localhost',
   port: process.env.PORT || 8080
-};
+}
 
 process.env.BABEL_ENV = TARGET;
 
@@ -44,7 +44,7 @@ const common = {
       appMountId: 'app'
     })
   ]
-};
+}
 
 if(TARGET === 'start' || !TARGET) {
   module.exports = merge(common, {
@@ -77,7 +77,7 @@ if(TARGET === 'start' || !TARGET) {
     plugins: [
       new webpack.HotModuleReplacementPlugin()
     ]
-  });
+  })
 }
 
 if(TARGET === 'build' || TARGET === 'stats') {
@@ -124,5 +124,5 @@ if(TARGET === 'build' || TARGET === 'stats') {
         }
       })
     ]
-  });
+  })
 }
