@@ -39,7 +39,7 @@ const common = {
   },
   plugins: [
     new HtmlwebpackPlugin({
-      template: 'node_modules/html-webpack-template/index.html',
+      template: 'templates/index.html',
       title: 'Readme-The missing online resume maker',
       appMountId: 'app'
     })

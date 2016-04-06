@@ -1,5 +1,6 @@
 import React from 'react';
 import Panel from '../components/Panel.jsx';
+import NavBar from '../components/NavBar.jsx';
 import Canvas from '../components/Canvas.jsx';
 import {DragDropContext} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -15,6 +16,7 @@ export default class Readme extends React.Component {
   	const { global } = this.props
     return (
       <div>
+        {global.editing ? <NavBar />:null}
       	{global.editing ? <Panel />:null}
 				<Canvas />
       </div>

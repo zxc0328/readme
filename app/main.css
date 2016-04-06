@@ -4,6 +4,7 @@
 body{
   margin: 0;
   background-color: #e0e0e0;
+  font-family: roboto;
 }
 /**
  * css of readme
@@ -20,6 +21,15 @@ body{
   margin: 0px auto; 
   background-color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+.canvas_container{
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 120px;
+  padding-left: 280px;
+  padding-bottom: 100px;
+  overflow: scroll;
 }
 .atom{
   width: 100%;
@@ -88,31 +98,73 @@ body{
  * panel
  */
 .panel{
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
   background-color: #fff;
   position: fixed;
-  top: 100px;
-  left: 100px;
+  top: 0px;
+  left: 0px;
+  width: 280px;
   border-radius: 4px;
-  padding-top: 30px;
+  padding-top: 72px;
   padding-bottom: 30px;
+  height: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(51, 51, 51, 0.38);
 }
 .panel_container{
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
 }
 .panel_container_title{
   padding-bottom: 20px;
 }
+.panel_section{
+}
+.panel_section_body{
+  font-size: 0px;
+}
 .item_proto{
-  display: block;
-  padding: 10px;
+  font-size: 20px;
+  display: inline-block;
+  width: 120px;
+  height: 120px;
   border-radius: 2px;
-  background-color: #00bfa5;
-  color: #fff;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
+  vertical-align: top;
+  margin:0px 6.5px 10px;
+  cursor: pointer;
+}
+.item_proto:hover{
+  background-color:rgba(0,0,0,0.2);
+}
+.panel_info{
+  position: relative;
+  height: 156px;
+}
+.panel_info img{
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
+
+.panel_avatar img{
+  width: 100%;
+}
+
+.panel_avatar{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.panel_section_title{
+  height: 46px;
+  line-height: 46px;
+}
+.panel_section_title:hover{
+  background-color: #f7f7f7;
 }
 
 /**
@@ -142,6 +194,14 @@ body{
   vertical-align: top;
   border-radius: 50%;
   background-color: blueviolet;
+}
+.item_proto_img{
+  height: 100px;
+}
+.item_proto_des{
+  text-align: center;
+  height: 20px;
+  font-size:14px;
 }
 
 /**
@@ -189,4 +249,41 @@ body{
   position: fixed;
   right: 20px;
   bottom: 260px;
+}
+
+/**
+ * nav bar
+ */
+.navbar{
+  height: 72px;
+  line-height: 72px;
+  background-color:#2196f3;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+}
+.navbar_item{
+    text-align: center;
+}
+.navbar_logo{
+  float: left;
+  width: 150px;
+  font-size: 20px;
+  font-weight: lighter;
+}
+.navbar_preview{
+  overflow: hidden;
+  text-align: right;
+  padding-right: 50px;
+}
+.navbar_icon{
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20px;
+  font-size: 30px;
+  cursor: pointer;
 }

@@ -48,7 +48,8 @@ allBlocks.map((block,index) => {
 													{blockItems.map( (item) => 
 						 							<Item key={item.id}  blockId={block.id} item={item} { ...item } onMove={moveItem}/>)}
 						 							</Block>)})
-		return <div className="canvas">
+		return <div className="canvas_container">
+						<div className="canvas">
 						 { global.editing ?
 						 <div>
 						 	<button className={'toggleSwticher'} onClick={() => themeSwitcherVisibility(!switcherFlag)}>Switch Theme</button>
@@ -61,6 +62,7 @@ allBlocks.map((block,index) => {
 						 </div> 
 						 : null }
 						 {blocks}		
+		       	</div>
 		       </div>
 	}
 

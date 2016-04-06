@@ -7,6 +7,5 @@ export default ({store}) =>
   <Provider store={store}>
     <div className="readme">
       <Readme />
-      <DevTools />
     </div>
   </Provider>
