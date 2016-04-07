@@ -6,6 +6,13 @@ body{
   background-color: #e0e0e0;
   font-family: roboto;
 }
+@font-face {
+  font-family:"DIN Condensed";
+  src: url(/fonts/DINWeb-Cond.ttf),
+       url(/fonts/DINWeb-Cond.eot),
+       url(/fonts/DINWeb-Cond.woff);
+  font-weight: normal;
+}
 /**
  * css of readme
  */
@@ -17,7 +24,6 @@ body{
 }
 .canvas{
   width: 620px;
-  border-radius: 4px;
   margin: 0px auto; 
   background-color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
@@ -286,4 +292,34 @@ body{
   margin-right: 20px;
   font-size: 30px;
   cursor: pointer;
+}
+
+
+/**
+ * THEME HUI
+ */
+
+.hui{
+  box-sizing: border-box;
+  border:9px solid #127BBE;
+  padding: 0px 54px 0px;
+  font-family: "DIN Condensed";
+  color: #127BBE;
+}
+.hui .block{
+  display: inline-block;
+  min-height: 876px;
+  vertical-align: top;
+  width: 50%
+}
+.hui .head{
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 100px;
+}
+.hui .block_0{
+
+}
+.hui .block_1{
+
 }

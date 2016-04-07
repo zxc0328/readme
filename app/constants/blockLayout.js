@@ -1,7 +1,7 @@
 import style from './style'
 
 export default {
-  two_column: [
+  hui: [
     {
       id: 0,
       items: [],

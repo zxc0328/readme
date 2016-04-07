@@ -2,7 +2,7 @@ import update from 'react-addons-update'
 import * as types from '../actions/blocks'
 import blockLayout from '../constants/blockLayout'
 
-const initialState = blockLayout.two_column;
+const initialState = blockLayout.hui;
 export default function blocks(state = initialState, action) {
   switch (action.type) {
     case types.ATTACH_TO_BLOCK:
