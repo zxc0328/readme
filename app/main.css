@@ -16,12 +16,7 @@ body{
 /**
  * css of readme
  */
-.item{
-  display: block;
-  font-size: 24px;
-  position: relative;
-  padding: 20px;
-}
+
 .canvas{
   width: 620px;
   margin: 0px auto; 
@@ -42,11 +37,6 @@ body{
   min-height: 40px;
   font-size: 20px;
   position: relative;
-}
-.item_header{
-  width: 100%;
-  padding-bottom: 10px;
-  border-bottom:1px solid #00bfa5;
 }
 .item .value{
 
@@ -306,20 +296,45 @@ body{
   font-family: "DIN Condensed";
   color: #127BBE;
 }
+.hui::after{
+  content: '.';
+  visibility: hidden;
+  clear: both;
+  display: block;
+  height: 0;
+}
 .hui .block{
-  display: inline-block;
-  min-height: 876px;
-  vertical-align: top;
-  width: 50%
+  min-height: 700px;
+  width: 45%;
 }
 .hui .head{
   font-size: 36px;
   font-weight: bold;
   margin-top: 100px;
+  margin-bottom: 54px;
 }
 .hui .block_0{
-
+  float: left;
 }
 .hui .block_1{
-
+  float: right;
+}
+.hui .item_header{
+  font-family: "DIN Condensed";
+  font-size: 20px;
+}
+.hui .item{
+  font-family: "Helvetica","Arial",sans-serif;
+  display: block;
+  font-size: 24px;
+  position: relative;
+  padding:10px;
+  border:1px solid transparent;
+  border-width:1px 0 0px 0;
+  border-image:
+    repeating-linear-gradient(
+      -45deg,
+      #979797 0px,
+      #979797 1px,
+      transparent 0, transparent 4px) 1;
 }
