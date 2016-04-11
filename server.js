@@ -29,20 +29,12 @@ function renderFullPage(html) {
         <style>
         .canvas_container{
           padding:0;
-        }
-        .canvas{
-   
+          overflow:visible;
         }
         body{
-          height:100%;
-          width:100%;
-           overflow:hidden;
+          background:none;
         }
-        #root{
-          height:100%;
-          width:100%;
-          overflow:hidden;
-        }
+
         </style>
       </head>
       <body>
@@ -78,8 +70,7 @@ function getPdfHandler(req, res) {
     marginBottom: 0,
     marginLeft: 0,
     marginRight:0,
-    noBackground:true,
-    background:false
+    disableSmartShrinking:true
   }, 
   function (code, signal) {
     res.send(JSON.stringify({fileName}))

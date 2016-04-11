@@ -18,7 +18,8 @@ body{
  */
 
 .canvas{
-  width: 622px;
+  width: 619px;
+  height: 876px;
   margin: 0px auto; 
   background-color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
@@ -281,8 +282,15 @@ body{
   font-size: 30px;
   cursor: pointer;
 }
-
-
+.navbar_form{
+  display: inline-block;
+   vertical-align: middle;
+}
+.navbar_btn{
+  background:none;
+  border: 0;
+  color: #fff;
+}
 /**
  * THEME HUI
  */
@@ -302,7 +310,7 @@ body{
   height: 0;
 }
 .hui .block{
-  min-height: 652px;
+  min-height: 647px;
   width: 45%;
 }
 .hui .head{

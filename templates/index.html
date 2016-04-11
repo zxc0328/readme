@@ -14,9 +14,9 @@
   {% if (o.htmlWebpackPlugin.options.mobile) { %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% } %}
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="http://7oxh2b.com1.z0.glb.clouddn.com/material.min.css">
+  <link rel="stylesheet" href="/build/dist/roboto.css" type="text/css">
+  <link rel="stylesheet" href="/build/dist/icon.css">
+  <link rel="stylesheet" href="/build/dist/material.min.css">
   {% for (var css in o.htmlWebpackPlugin.files.css) { %}
   <link href="{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">
   {% } %}
@@ -50,7 +50,7 @@
 </script>
 {% } %}
 
-<script src="http://7oxh2b.com1.z0.glb.clouddn.com/material.min.js"></script>
+<script src="/build/dist/material.min.js"></script>
 
 {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
 <script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>

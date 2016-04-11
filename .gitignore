@@ -1,5 +1,6 @@
 node_modules
 **.log.**
-build
+build/*.js
+build/*.css
 *.pdf
 server-c.js
