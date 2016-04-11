@@ -24,8 +24,8 @@ export default class Panel extends React.Component {
 									<span>Components</span>
 								</div>
 								<div className="panel_section_body">
-									<ItemProto type={0} description={'List with title'}/>
-									<ItemProto type={1} description={'Avatar'}/>
+									<ItemProto type={0} description={'List-vertical'}/>
+									<ItemProto type={4} description={'Info'}/>
 									<ItemProto type={2} description={'List without title'}/>
 									<ItemProto type={3} description={'SVG Bar'}/>
 								</div>

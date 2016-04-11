@@ -1,16 +1,6 @@
 import React from 'react'
 import Editable from './Editable.jsx'
 
-const style = {
-	title:{
-		fontSize:'20px',
-		lineHeight:'40px'
-	},
-	content:{
-		fontSize:'14px',
-		lineHeight:'20px'
-	}
-}
 export default class AtomListItem extends React.Component {
 	render() {
 		const { atom, itemId, updateAtom, updateItem } = this.props
@@ -18,22 +8,22 @@ export default class AtomListItem extends React.Component {
 							<Editable
 							  key={0}
           			value={atom.title}
-								style={style.title}
 								inputType={'text'}
+								className={'edit edit_title'}
 								placeholder='click to enter title'
 								onValueClick={(val) => this.updateEditState(atom, itemId, updateAtom, updateItem) }
           			onEdit={(val) => updateAtom({id:atom.id, title:val,editing:false})}>
-          			<span className="value">{atom.title}</span>
+          			<div className="title">{atom.title}</div>
           		</Editable>
           		<Editable
           		  key={1}
-          		  style={style.content}
           		  inputType={'textarea'}
+          		  className={'edit edit_description'}
           			value={atom.description}
           			placeholder='click to enter description'
           			onValueClick={(val) => this.updateEditState(atom, itemId, updateAtom, updateItem) }
           			onEdit={(val) => updateAtom({id:atom.id, description:val,editing:false})}>
-          			<span className="value">{atom.description}</span>
+          			<div className="description">{atom.description}</div>
           		</Editable>
 					 </div>
 	}

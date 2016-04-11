@@ -25,7 +25,25 @@ function renderFullPage(html) {
       <head>
         <meta charset="utf-8">
         <title>Readme server rendering</title>
-        <link rel="stylesheet" href="http://localhost:3333/styles.4bef7b8bdb6d9f204b3f.css" />
+        <link rel="stylesheet" href="http://localhost:3333/styles.css" />
+        <style>
+        .canvas_container{
+          padding:0;
+        }
+        .canvas{
+   
+        }
+        body{
+          height:100%;
+          width:100%;
+           overflow:hidden;
+        }
+        #root{
+          height:100%;
+          width:100%;
+          overflow:hidden;
+        }
+        </style>
       </head>
       <body>
         <div id="root">${html}</div>
@@ -60,7 +78,8 @@ function getPdfHandler(req, res) {
     marginBottom: 0,
     marginLeft: 0,
     marginRight:0,
-    disableSmartShrinking:true
+    noBackground:true,
+    background:false
   }, 
   function (code, signal) {
     res.send(JSON.stringify({fileName}))

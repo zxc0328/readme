@@ -62,7 +62,7 @@ export default class Item extends React.Component {
 		const dragSource = item.editing ? a => a : connectDragSource
 		switch (this.props.type){
 							case 0:
-								return dragSource(connectDropTarget(<div className="item">
+								return dragSource(connectDropTarget(<div className="item item-list-vertical">
 													<div className="item_header" onClick={() => updateItem({id: item.id, editing: true})}>
 														<Editable
           									value={item.title}
@@ -96,7 +96,7 @@ export default class Item extends React.Component {
 												attachToItem={attachToItem}/>
 							  			 </div>))
 							case 2:
-							  return dragSource(connectDropTarget(<div className="item">
+							  return dragSource(connectDropTarget(<div className="item item-info">
 													<div className="item_header" onClick={() => updateItem({id: item.id, editing: true})}>
 														<Editable
           									value={item.title}
@@ -137,6 +137,28 @@ export default class Item extends React.Component {
 												onMove={moveAtom}
 												createAtom={createAtom} 
 												attachToItem={attachToItem}
+          							/>
+											 </div>))
+							case 4:
+								return dragSource(connectDropTarget(<div className="item item_textarea">
+													<div className="item_header" onClick={() => updateItem({id: item.id, editing: true})}>
+														<Editable
+          									value={item.title}
+          									inputType={'text'}
+          									onValueClick={() => updateItem({id:item.id, editing:true})}
+          									onEdit={title => updateItem({id: item.id, title, editing: false})}>
+          										<span className="value">{item.title}</span>
+          									</Editable>
+													</div>
+												<ItemInfo 
+												atoms={allAtoms} 
+												item={item} 
+												atomType={1}
+												global={global}
+												blockId={blockId}
+												createAtom={createAtom} 
+												attachToItem={attachToItem}
+												onMove={moveAtom}
           							/>
 											 </div>))
 							default:

@@ -63,7 +63,12 @@ export default class Atom extends React.Component {
 							case 1:
 								return dragSource(connectDropTarget(<div className="atom">
 												{ global.editing ? <AtomEdit atomId={atom.id}/> : null}
-												<AtomInfoItem
+												<AtomListItemTitleLess
+												atom={atom}
+												itemId={itemId}
+												inputType={"textarea"}
+												updateAtom={updateAtom}
+												updateItem={updateItem}
 												/>
 											 </div>))
 							case 2:
@@ -72,6 +77,7 @@ export default class Atom extends React.Component {
 												<AtomListItemTitleLess
 												atom={atom}
 												itemId={itemId}
+												inputType={"text"}
 												updateAtom={updateAtom}
 												updateItem={updateItem}
 												/>

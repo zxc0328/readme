@@ -107,9 +107,8 @@ if(TARGET === 'build' || TARGET === 'stats') {
       ]
     },
     plugins: [
-      new Clean([PATHS.build]),
       // Output extracted CSS to a file
-      new ExtractTextPlugin('styles.[chunkhash].css'),
+      new ExtractTextPlugin('styles.css'),
       // Extract vendor and manifest files
       new webpack.optimize.CommonsChunkPlugin({
         names: ['vendor', 'manifest']

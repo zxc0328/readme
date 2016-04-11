@@ -18,7 +18,7 @@ body{
  */
 
 .canvas{
-  width: 620px;
+  width: 622px;
   margin: 0px auto; 
   background-color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
@@ -34,8 +34,6 @@ body{
 }
 .atom{
   width: 100%;
-  min-height: 40px;
-  font-size: 20px;
   position: relative;
 }
 .item .value{
@@ -304,7 +302,7 @@ body{
   height: 0;
 }
 .hui .block{
-  min-height: 700px;
+  min-height: 652px;
   width: 45%;
 }
 .hui .head{
@@ -322,6 +320,7 @@ body{
 .hui .item_header{
   font-family: "DIN Condensed";
   font-size: 20px;
+  margin-bottom: 10px;
 }
 .hui .item{
   font-family: "Helvetica","Arial",sans-serif;
@@ -337,4 +336,29 @@ body{
       #979797 0px,
       #979797 1px,
       transparent 0, transparent 4px) 1;
+}
+.hui .atom{
+  color: #666;
+}
+.hui .item-list-vertical .list_item .title{
+  font-size: 13px;
+  line-height: 11px;
+  margin-bottom: 5px;
+}
+.hui .item-list-vertical .list_item{
+  margin-bottom: 10px;
+}
+.hui .item-list-vertical .list_item .description{
+  font-size: 10px;
+  line-height: 12px;
+}
+.hui .item-info .list_item{
+  font-size: 14px;
+}
+.hui .item-info .list_item{
+  font-size: 14px;
+}
+.hui .item_textarea .content{
+  font-size: 14px;
+  line-height: 16px;
 }
