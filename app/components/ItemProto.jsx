@@ -17,11 +17,13 @@ const itemSource = {
 export default class ItemProto extends React.Component {
 
 	render() {
-		const { connectDragSource } = this.props
+		const { connectDragSource,description,svgFileName } = this.props
 		return connectDragSource(
       <div className="item_proto">
-        <div className="item_proto_img"></div>
-        <div className="item_proto_des">{ this.props.description }</div>
+        <div className="item_proto_img">
+          <img src={"/dist/" + svgFileName + ".svg"} alt="icon"/>
+        </div>
+        <div className="item_proto_des">{ description }</div>
       </div>)
 	}
 }

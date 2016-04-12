@@ -3,7 +3,7 @@ import React from 'react';
 export default class Editable extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {editing:true,value:this.props.value}
+    this.state = {editing:false,value:this.props.value}
   }
   render() {
     const {value, onEdit, onValueClick, ...props} = this.props;

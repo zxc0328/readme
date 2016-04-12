@@ -24,13 +24,13 @@ export default class Panel extends React.Component {
 									<span>Components</span>
 								</div>
 								<div className="panel_section_body">
-									<ItemProto type={0} description={'List-vertical'}/>
-									<ItemProto type={4} description={'Info'}/>
-									<ItemProto type={2} description={'List without title'}/>
-									<ItemProto type={3} description={'SVG Bar'}/>
+									<ItemProto type={0} svgFileName={"list_vertical"} description={'List-vertical'}/>
+									<ItemProto type={4} svgFileName={"list_textarea"} description={'Info'}/>
+									<ItemProto type={2} svgFileName={"list_text"} description={'List without title'}/>
+									<ItemProto type={3} svgFileName={"list_text"} description={'SVG Bar'}/>
 								</div>
 							</div>
-							<div>
+							<div className="panel_btns">
 								<button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={() => {switchEdit(false)}}>PREVIEW</button>
 							</div>
 						</div>
