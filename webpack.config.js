@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const Clean = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var Promise = require('es6-promise').Promise;
 
 const pkg = require('./package.json');
 
