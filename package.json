@@ -46,6 +46,7 @@
     "wkhtmltopdf": "^0.1.5"
   },
   "dependencies": {
+    "marked": "^0.3.5",
     "node-uuid": "^1.4.7",
     "react": "^0.14.6",
     "react-addons-update": "^0.14.6",

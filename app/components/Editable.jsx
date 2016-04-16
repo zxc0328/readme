@@ -1,4 +1,5 @@
 import React from 'react';
+const marked = require('marked');
 
 export default class Editable extends React.Component {
   constructor(props) {
