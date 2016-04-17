@@ -1,5 +1,6 @@
 import React from 'react'
 import Editable from './Editable.jsx'
+import markdown from '../libs/markdown'
 
 export default class AtomInfoItem extends React.Component {
 	render() {
@@ -13,7 +14,8 @@ export default class AtomInfoItem extends React.Component {
 								placeholder={'click to enter content'}
 								onValueClick={(val) => updateAtom({id:atom.id, editing:true})}
           			onEdit={(val) => updateAtom({id:atom.id, content:val,editing:false})}>
-          			<div className="content">{atom.content}</div>
+          			<div className="content"
+          			dangerouslySetInnerHTML={markdown.get(atom.content)} />
           		</Editable>
 					 </div>
 	}

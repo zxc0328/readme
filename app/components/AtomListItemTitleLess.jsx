@@ -1,5 +1,6 @@
 import React from 'react'
 import Editable from './Editable.jsx'
+import markdown from '../libs/markdown'
 
 export default class AtomListItemTitleLess extends React.Component {
 	render() {
@@ -9,7 +10,7 @@ export default class AtomListItemTitleLess extends React.Component {
 							  key={0}
           			value={atom.content}
           			inputType={inputType}
-								placeholder={'click to enter content'}
+								placeholder={'Click to enter content, markdown supported'}
 								onValueClick={(val) => updateAtom({id:atom.id, editing:true})}
           			onEdit={(val) => updateAtom({id:atom.id, content:val,editing:false})}>
           			<div className="value">{atom.content}</div>

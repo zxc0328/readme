@@ -21,7 +21,7 @@ export default class AtomListItem extends React.Component {
           		  inputType={'textarea'}
           		  className={'edit edit_description'}
           			value={atom.description}
-          			placeholder='click to enter description'
+          			placeholder={'click to enter description'}
           			onValueClick={(val) => this.updateEditState(atom, itemId, updateAtom, updateItem) }
           			onEdit={(val) => updateAtom({id:atom.id, description:val,editing:false})}>
           			<div className="description" 

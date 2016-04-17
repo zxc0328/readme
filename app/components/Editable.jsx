@@ -22,14 +22,14 @@ export default class Editable extends React.Component {
         autoFocus={true}
         defaultValue={this.state.value}
         onBlur={this.finishEdit}
-        onKeyPress={this.checkEnter}
+        //onKeyPress={this.checkEnter}
         placeholder={this.props.placeholder}/>
       case 'text':
         return <input type="text"
         autoFocus={true}
         defaultValue={this.state.value}
         onBlur={this.finishEdit}
-        onKeyPress={this.checkEnter}
+        //onKeyPress={this.checkEnter}
         placeholder={this.props.placeholder}/>;
       case 'range':
         return <div>

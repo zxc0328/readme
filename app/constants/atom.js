@@ -6,12 +6,11 @@ export default {
       description:''
     },
     {
-      typeName:'imgItem',
-      src:'',
-      description:''
+      typeName:'InfoItem',
+      content:''
     },
     {
-      typeName:'listItem',
+      typeName:'ListItemWithoutTitle',
       content:''
     },
     {

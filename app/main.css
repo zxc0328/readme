@@ -14,6 +14,15 @@ body{
        url(/fonts/DINWeb-Cond.woff);
   font-weight: normal;
 }
+h1,h2,h3,h4,h5,h6{
+  font-size: 100%;
+  margin: 0;
+  line-height: 1;
+}
+p{
+  margin:0;
+  line-height: 1;
+}
 /**
  * css of readme
  */
@@ -171,8 +180,8 @@ body{
   height: 30px;
   text-align: right;
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 5px;
+  top: 5px;
 }
 .info_btn--add{
   margin-right: 10px;
@@ -398,7 +407,10 @@ body{
 .hui .item-info .list_item{
   font-size: 14px;
 }
-.hui .item_textarea .value{
+.hui .item_textarea .list_item .value{
   font-size: 14px;
   line-height: 16px;
+}
+.hui p{
+  line-height: 1.2;
 }
