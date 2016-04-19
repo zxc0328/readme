@@ -35,7 +35,6 @@
     "gh-pages": "^0.8.0",
     "html-webpack-plugin": "^1.7.0",
     "html-webpack-template": "^2.5.2",
-    "jade": "^1.11.0",
     "redux-devtools": "^3.0.1",
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.2",
